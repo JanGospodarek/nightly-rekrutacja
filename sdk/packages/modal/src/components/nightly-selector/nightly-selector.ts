@@ -12,7 +12,8 @@ import '../nightly-mobile-qr/nightly-mobile-qr'
 import '../nightly-mobile-main/nightly-mobile-main'
 import '../nightly-footer/nightly-footer'
 import { XMLOptions } from '@nightlylabs/qr-code'
-
+import { type FooterData } from '@nightlylabs/wallet-selector-base'
+// import { type FooterData } from '../../../../selector-base/src/types'
 @customElement('nightly-selector')
 export class NightlySelector extends LitElement {
   static styles = tailwindElement(style)
@@ -32,6 +33,9 @@ export class NightlySelector extends LitElement {
 
   @property({ type: String })
   chainIcon = ''
+
+  @property({ type: Object })
+  optionalFooterData: FooterData | undefined = undefined
 
   @property({ type: String })
   chainName = ''
@@ -102,6 +106,7 @@ export class NightlySelector extends LitElement {
 
   handleClose = () => {
     this.fireClosingAnimation = true
+    console.log(this.optionalFooterData)
     setTimeout(
       () => {
         this.onClose()
@@ -172,7 +177,6 @@ export class NightlySelector extends LitElement {
       this.isMobile = true
       this.setCurrentView(SelectorView.MOBILE_MAIN)
     }
-
     this.mobileQuery.addEventListener('change', () => {
       this.isMobile = this.mobileQuery.matches
       if (this.currentView !== SelectorView.CONNECTING) {
@@ -320,7 +324,7 @@ export class NightlySelector extends LitElement {
           >
             ${this.renderCurrent()}
           </div>
-          <nightly-footer></nightly-footer>
+          <nightly-footer .optionalFooterData=${this.optionalFooterData}></nightly-footer>
         </div>
       </div>
     `

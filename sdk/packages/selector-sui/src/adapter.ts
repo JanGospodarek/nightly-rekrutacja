@@ -28,7 +28,8 @@ import {
   persistStandardConnectForNetwork,
   persistStandardDisconnectForNetwork,
   sleep,
-  triggerConnect
+  triggerConnect,
+  FooterData
 } from '@nightlylabs/wallet-selector-base'
 import type { StandardEventsOnMethod, WalletAccount } from '@wallet-standard/core'
 import bs58 from 'bs58'
@@ -142,7 +143,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    }
+    },
+    optionalFooterData?: FooterData
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -161,7 +163,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      optionalFooterData
     )
 
     const [app, metadataWallets] = await NightlyConnectSuiAdapter.initApp(appInitData)
@@ -185,7 +188,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    }
+    },
+    optionalFooterData?: FooterData
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -204,7 +208,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      optionalFooterData
     )
 
     adapter._loading = true
@@ -230,7 +235,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    }
+    },
+    optionalFooterData?: FooterData
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets, true)
 
@@ -250,7 +256,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      optionalFooterData
     )
 
     return adapter
