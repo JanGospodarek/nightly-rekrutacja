@@ -22,8 +22,7 @@ export default function Solana() {
       },
       true,
       document.getElementById('modalAnchor'),
-      undefined,
-      'test'
+      undefined
     ).then((adapter) => {
       adapter.on('connect', (pk) => {
         setPublicKey(pk)

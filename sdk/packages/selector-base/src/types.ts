@@ -28,6 +28,14 @@ export interface NetworkData {
   icon: string
 }
 
+type FooterLink = {
+  describtion: string
+  hrefName: string
+  hrefUrl: string
+}
+
+export type FooterData = FooterLink[]
+
 export enum ConnectionType {
   Nightly = 'Nightly',
   WalletStandard = 'WalletStandard'
