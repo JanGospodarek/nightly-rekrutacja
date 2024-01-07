@@ -34,6 +34,9 @@ export class NightlySelector extends LitElement {
   chainIcon = ''
 
   @property({ type: String })
+  test = ''
+
+  @property({ type: String })
   chainName = ''
 
   @property({ type: String })
@@ -102,6 +105,7 @@ export class NightlySelector extends LitElement {
 
   handleClose = () => {
     this.fireClosingAnimation = true
+    console.log(this.test)
     setTimeout(
       () => {
         this.onClose()
@@ -168,6 +172,7 @@ export class NightlySelector extends LitElement {
     this.goToMobileAll = this.goToMobileAll.bind(this)
     this.goToMobileQr = this.goToMobileQr.bind(this)
 
+    console.log(this.test)
     if (this.mobileQuery.matches) {
       this.isMobile = true
       this.setCurrentView(SelectorView.MOBILE_MAIN)
