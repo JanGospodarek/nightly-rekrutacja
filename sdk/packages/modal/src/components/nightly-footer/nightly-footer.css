@@ -8,9 +8,10 @@
 .nc_footerLink {
   color: var(--nc-color-primary);
   text-decoration: underline;
-  text-decoration-thickness: 1%;
+  text-decoration-thickness: 0.1em;
   text-underline-offset: 2px;
   cursor: pointer;
+  white-space: nowrap;
 }
 @media (max-width: 640px) {
   .nc_footer {

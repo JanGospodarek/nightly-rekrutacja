@@ -75,7 +75,7 @@ export class NightlySelector extends LitElement {
   isMobile = false
 
   // media queries
-
+  desktopQuery = window.matchMedia('(min-width: 640px)')
   mobileQuery = window.matchMedia('(max-width: 640px)')
   smallerMobileQuery = window.matchMedia('(max-width: 482px)')
   smallestMobileQuery = window.matchMedia('(max-width: 374px)')
@@ -106,7 +106,7 @@ export class NightlySelector extends LitElement {
       () => {
         this.onClose()
       },
-      this.mobileQuery.matches ? 240 : 80
+      this.mobileQuery.matches ? 240 : this.desktopQuery.matches ? 400 : 80
     )
   }
 
@@ -297,16 +297,15 @@ export class NightlySelector extends LitElement {
   render() {
     return html`
       <div
-        class="nc_modalOverlay ${this.fireClosingAnimation ? 'nc_modalClosingAnimation' : ''}"
+        class="nc_modalOverlay ${this.fireClosingAnimation && 'nc_modalOverlayClosingAnimation'}"
         @click=${this.handleClose}
       >
         <div
           @click=${(e: MouseEvent) => {
             e.stopPropagation()
           }}
-          class="nc_modalWrapper ${this.fireClosingAnimation
-            ? 'nc_modalMobileSlideOutAnimation'
-            : ''}"
+          class="nc_modalWrapper ${this.fireClosingAnimation &&
+          'nc_modalClosingAnimation nc_modalMobileSlideOutAnimation'}"
         >
           <nightly-header .onClose=${this.handleClose}></nightly-header>
           <div
