@@ -28,10 +28,10 @@ export interface NetworkData {
   icon: string
 }
 
-type FooterLink = {
-  describtion: string
-  hrefName: string
-  hrefUrl: string
+export type FooterLink = {
+  description: string
+  linkName: string
+  linkUrl: string
 }
 
 export type FooterData = FooterLink[]

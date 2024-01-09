@@ -17,7 +17,7 @@ import {
   persistStandardDisconnectForNetwork,
   sleep,
   XMLOptions,
-  FooterData
+  type FooterData
 } from '@nightlylabs/wallet-selector-base'
 import {
   BaseMessageSignerWalletAdapter,

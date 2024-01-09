@@ -12,15 +12,13 @@ export interface WalletSelectorItem {
   recent?: boolean
 }
 
-// type FooterLink = {
-//   text: string
-//   link: string
-// }
+export type FooterLink = {
+  description: string
+  linkName: string
+  linkUrl: string
+}
 
-// export interface FooterData {
-//   text: string[]
-//   links: FooterLink[]
-// }
+export type FooterData = FooterLink[]
 
 export enum SelectorView {
   DESKTOP_MAIN,

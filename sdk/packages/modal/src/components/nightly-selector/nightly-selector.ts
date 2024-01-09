@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { tailwindElement } from '../../shared/tailwind.element'
 import style from './nightly-selector.css'
-import { SelectorView, WalletSelectorItem } from '../../utils/types'
+import { SelectorView, WalletSelectorItem, FooterData } from '../../utils/types'
 import { styleMap } from 'lit/directives/style-map.js'
 import '../nightly-desktop-main/nightly-desktop-main'
 import '../nightly-connect-wallet/nightly-connect-wallet'
@@ -12,8 +12,6 @@ import '../nightly-mobile-qr/nightly-mobile-qr'
 import '../nightly-mobile-main/nightly-mobile-main'
 import '../nightly-footer/nightly-footer'
 import { XMLOptions } from '@nightlylabs/qr-code'
-import { type FooterData } from '@nightlylabs/wallet-selector-base'
-// import { type FooterData } from '../../../../selector-base/src/types'
 @customElement('nightly-selector')
 export class NightlySelector extends LitElement {
   static styles = tailwindElement(style)

@@ -2,15 +2,11 @@ import { customElement, property } from 'lit/decorators.js'
 import { tailwindElement } from '../../shared/tailwind.element'
 import style from './nightly-footer.css'
 import { LitElement, html } from 'lit'
-import { type FooterData, type FooterLink } from '@nightlylabs/wallet-selector-base'
+import { type FooterData, type FooterLink } from '../../utils/types'
 
 @customElement('nightly-footer')
 export class NightlyFooter extends LitElement {
   static styles = tailwindElement(style)
-
-  //   @property()
-  //   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  //   onClose = () => {}
 
   @property({ type: Object })
   optionalFooterData: FooterData | undefined = undefined
@@ -19,17 +15,15 @@ export class NightlyFooter extends LitElement {
     return html`
       <div class="nc_footer">
         ${this.optionalFooterData
-          ? html`
-              ${this.optionalFooterData.map(
-                (link: FooterLink) => html`
-                  ${link.describtion}
-                  <span class="nc_footerLink">${link.hrefName}</span>
-                `
-              )}
-            `
+          ? this.optionalFooterData.map(
+              (link: FooterLink) => html`
+                ${link.description.trim() + ' '}
+                <a href="${link.linkUrl}" class="nc_footerLink">${link.linkName}</a>
+              `
+            )
           : html` By connecting, you agree to Common's
-              <span class="nc_footerLink">Terms of Service</span> and to its
-              <span class="nc_footerLink">Privacy Policy</span>.`}
+              <a href="/terms" class="nc_footerLink">Terms of Service</a> and to its
+              <a href="/terms" class="nc_footerLink">Privacy Policy</a>.`}
       </div>
     `
   }
