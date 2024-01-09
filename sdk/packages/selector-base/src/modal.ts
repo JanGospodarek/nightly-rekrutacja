@@ -9,7 +9,7 @@ export class NightlyConnectSelectorModal {
   _networkData: NetworkData
   _relay: string
   _walletsList: IWalletListItem[] = []
-  _optionalFooterData: FooterData | undefined
+  _footerDataOverride: FooterData | undefined
   _open = false
   onOpen: (() => void) | undefined
   onClose: (() => void) | undefined
@@ -22,13 +22,13 @@ export class NightlyConnectSelectorModal {
     variablesOverride?: object,
     stylesOverride?: string,
     qrConfigOverride?: Partial<XMLOptions>,
-    optionalFooterData?: FooterData
+    footerDataOverride?: FooterData
   ) {
     this.walletsList = walletsList
     this._relay = relay
     this._networkData = networkData
     this._anchor = anchorRef ?? document.body
-    this._optionalFooterData = optionalFooterData
+    this._footerDataOverride = footerDataOverride
     this.createSelectorElement(variablesOverride, stylesOverride, qrConfigOverride)
   }
 
@@ -54,7 +54,7 @@ export class NightlyConnectSelectorModal {
     import('@nightlylabs/wallet-selector-modal').then(({ getNightlySelectorElement }) => {
       this._modal = getNightlySelectorElement(variablesOverride, stylesOverride, qrConfigOverride)
       this._modal.onClose = this.onCloseModal
-      this._modal.optionalFooterData = this._optionalFooterData
+      this._modal.footerDataOverride = this._footerDataOverride
       this._modal.relay = this._relay
       this._modal.chainIcon = this._networkData.icon
       this._modal.chainName = this._networkData.name

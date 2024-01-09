@@ -33,7 +33,7 @@ export class NightlySelector extends LitElement {
   chainIcon = ''
 
   @property({ type: Object })
-  optionalFooterData: FooterData | undefined = undefined
+  footerDataOverride: FooterData | undefined = undefined
 
   @property({ type: String })
   chainName = ''
@@ -104,7 +104,7 @@ export class NightlySelector extends LitElement {
 
   handleClose = () => {
     this.fireClosingAnimation = true
-    console.log(this.optionalFooterData)
+    console.log(this.footerDataOverride)
     setTimeout(
       () => {
         this.onClose()
@@ -322,7 +322,7 @@ export class NightlySelector extends LitElement {
           >
             ${this.renderCurrent()}
           </div>
-          <nightly-footer .optionalFooterData=${this.optionalFooterData}></nightly-footer>
+          <nightly-footer .footerDataOverride=${this.footerDataOverride}></nightly-footer>
         </div>
       </div>
     `

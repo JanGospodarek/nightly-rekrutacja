@@ -143,8 +143,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -164,7 +164,7 @@ export class NightlyConnectSuiAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectSuiAdapter.initApp(appInitData)
@@ -188,8 +188,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -209,7 +209,7 @@ export class NightlyConnectSuiAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     adapter._loading = true
@@ -235,8 +235,8 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets, true)
 
@@ -257,7 +257,7 @@ export class NightlyConnectSuiAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     return adapter

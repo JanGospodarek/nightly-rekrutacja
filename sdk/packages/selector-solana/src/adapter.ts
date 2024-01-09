@@ -161,8 +161,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -187,7 +187,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -212,8 +212,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
 
@@ -238,7 +238,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     adapter._loading = true
@@ -267,8 +267,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets, true)
 
@@ -293,7 +293,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     return adapter

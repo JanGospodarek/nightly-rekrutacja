@@ -9,13 +9,13 @@ export class NightlyFooter extends LitElement {
   static styles = tailwindElement(style)
 
   @property({ type: Object })
-  optionalFooterData: FooterData | undefined = undefined
+  footerDataOverride: FooterData | undefined = undefined
 
   render() {
     return html`
       <div class="nc_footer">
-        ${this.optionalFooterData
-          ? this.optionalFooterData.map(
+        ${this.footerDataOverride
+          ? this.footerDataOverride.map(
               (link: FooterLink) => html`
                 ${link.description.trim() + ' '}
                 <a href="${link.linkUrl}" class="nc_footerLink">${link.linkName}</a>

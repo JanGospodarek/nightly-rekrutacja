@@ -148,8 +148,8 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     if (!useEagerConnect) {
       clearSessionIdForNetwork(appInitData.network)
@@ -169,7 +169,7 @@ export class NightlyConnectAdapter implements Injected {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -193,8 +193,8 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     if (!useEagerConnect) {
       clearSessionIdForNetwork(appInitData.network)
@@ -214,7 +214,7 @@ export class NightlyConnectAdapter implements Injected {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     adapter._loading = true
@@ -245,8 +245,8 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
-    },
-    optionalFooterData?: FooterData
+      footerDataOverride?: FooterData
+    }
   ) => {
     if (!useEagerConnect) {
       clearSessionIdForNetwork(appInitData.network)
@@ -266,7 +266,7 @@ export class NightlyConnectAdapter implements Injected {
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
       uiOverrides?.qrConfigOverride,
-      optionalFooterData
+      uiOverrides?.footerDataOverride
     )
 
     return adapter
