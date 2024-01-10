@@ -11,14 +11,17 @@ export interface WalletSelectorItem {
   detected?: boolean
   recent?: boolean
 }
-
 export type FooterLink = {
   description: string
   linkName: string
   linkUrl: string
 }
 
-export type FooterData = FooterLink[]
+export type FooterData = {
+  defaultContentTermsLink?: string
+  defaultContentPrivacyLink?: string
+  overrideContent?: FooterLink[]
+}
 
 export enum SelectorView {
   DESKTOP_MAIN,

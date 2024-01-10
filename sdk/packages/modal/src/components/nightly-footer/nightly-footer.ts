@@ -14,16 +14,28 @@ export class NightlyFooter extends LitElement {
   render() {
     return html`
       <div class="nc_footer">
-        ${this.footerDataOverride
-          ? this.footerDataOverride.map(
+        ${this.footerDataOverride?.overrideContent
+          ? this.footerDataOverride.overrideContent.map(
               (link: FooterLink) => html`
-                ${link.description.trim() + ' '}
+                ${' ' + link.description.trim() + ' '}
                 <a href="${link.linkUrl}" class="nc_footerLink">${link.linkName}</a>
               `
             )
           : html` By connecting, you agree to Common's
-              <a href="/terms" class="nc_footerLink">Terms of Service</a> and to its
-              <a href="/terms" class="nc_footerLink">Privacy Policy</a>.`}
+              <a
+                href="${
+                  this.footerDataOverride?.defaultContentTermsLink
+                    ? this.footerDataOverride?.defaultContentTermsLink
+                    : '/defaultTerms'
+                }"
+                class="nc_footerLink"
+                >Terms of Service</a
+              >
+              and to its <a href="${
+                this.footerDataOverride?.defaultContentPrivacyLink
+                  ? this.footerDataOverride?.defaultContentPrivacyLink
+                  : '/defaultPrivacy'
+              }"" class="nc_footerLink">Privacy Policy</a>.`}
       </div>
     `
   }

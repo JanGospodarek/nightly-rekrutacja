@@ -34,7 +34,11 @@ export type FooterLink = {
   linkUrl: string
 }
 
-export type FooterData = FooterLink[]
+export type FooterData = {
+  defaultContentTermsLink?: string
+  defaultContentPrivacyLink?: string
+  overrideContent?: FooterLink[]
+}
 
 export enum ConnectionType {
   Nightly = 'Nightly',
